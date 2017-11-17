@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Admin_Index" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 <!DOCTYPE html>
 
@@ -14,13 +15,14 @@
 </head>
 <body style="margin: auto">
 	<form id="form1" runat="server">
-		<div style="height: 10%; background-color: dodgerblue;">
+		<div style="height: 14%; background-color: dodgerblue;">
 			<table style="width: 100%;">
 				<tr style="height: 20px;"></tr>
 				<tr>
 					<td style="width: 2%;"></td>
 					<td align="left" style="width: 58%; text-align: left; vertical-align: middle">
-						<span style="font-family: DengXian; font-size: xx-large; font-weight: 600; color: white">煤矿应急救援培训系统</span>
+						<span style="font-family: DengXian; font-size: x-large; font-weight: 600; color: white">煤矿应急救援培训系统</span>&nbsp;&nbsp;
+						<asp:Label ID="lbTips" runat="server" Font-Names="黑体" ForeColor="white" Font-Bold="true" Font-Size="15pt"></asp:Label>
 					</td>
 					<td align="right" style="width: 38%;">
 						<%--<img alt="" src="../Resources/Admin/images/exit.svg" align="absmiddle" />--%>
@@ -31,23 +33,23 @@
 				<tr style="height: 20px;"></tr>
 			</table>
 		</div>
-		<div style="height: 6%; background-color:lightgray;">
+		<div style="height: 8%; background-color:lightgray;">
 			<table style="width: 100%;" cellspadding="0" rowspadding="0">
 				<tr style="height: 10px;"></tr>
 				<tr>
 					<td style="width: 6%;"></td>
 					<td align="left" style="width: 54%; text-align: left; vertical-align: middle">
-						<span style="font-family: DengXian; font-size: x-large; font-weight:bolder; color:saddlebrown">进入培训系统</span>
+						<span style="font-family: DengXian; font-size:large; font-weight:bolder; color:saddlebrown">进入培训系统</span>
 					</td>
 					<td align="right" style="width: 26%;">
 						<a href="#" style="text-decoration: none">
-							<span style="font-family:DengXian; font-size:15pt; font-weight:600; color:saddlebrown">任务管理</span>
+							<span style="font-family:DengXian; font-size:large; font-weight:600; color:saddlebrown">课程管理</span>
 						</a>
 					</td>
 					<td style="width:1%"></td>
 					<td align="left" style="width: 9%;">
 						<a href="#" style="text-decoration: none">
-							<span style="font-family:DengXian; font-size:15pt; font-weight:600; color:saddlebrown">人员管理</span>
+							<span style="font-family:DengXian; font-size:large; font-weight:600; color:saddlebrown">人员管理</span>
 						</a>
 					</td>
 					<td style="width: 4%;"></td>
@@ -55,7 +57,7 @@
 				<tr style="height: 10px;"></tr>
 			</table>
 		</div>
-		<div style="height:84%">
+		<div style="height:78%">
 			<table style="height:100%;width:100%">
 				<tr>
 					<td></td>
