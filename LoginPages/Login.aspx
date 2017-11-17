@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="LoginPges_Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="LoginPages_Login" %>
 
 <!DOCTYPE html>
 
@@ -17,11 +17,10 @@
 <body>
 	<div class="page-container">
 		<h1 style="text-align:center; color:white">用户登录</h1>
-		<form id="form1" runat="server">
+		<form id="form1" runat="server" name=".ASPXAUTH">
 			<div>
 				<asp:TextBox ID="tbUserName" runat="server"></asp:TextBox>
-				<asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
-
+				<asp:TextBox ID="tbPassword" runat="server" TextMode="Password"></asp:TextBox>
 			</div>
 			<asp:Button ID="btnLogin" runat="server" CssClass="button" Text="登&nbsp;&nbsp;&nbsp;&nbsp;录" Font-Bold="true" Font-Size="Large" OnClick="btnLogin_Click" />
 			<asp:Button ID="btnReset" runat="server" CssClass="button" Text="重&nbsp;&nbsp;&nbsp;&nbsp;置" Font-Bold="true" Font-Size="Large" OnClick="btnReset_Click" />
