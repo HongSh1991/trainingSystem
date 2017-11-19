@@ -12,7 +12,7 @@ public partial class LoginPages_Login : System.Web.UI.Page
 	protected void btnLogin_Click(object sender, EventArgs e)
 	{
 		string userName = tbUserName.Text.Trim();
-		string passWord = tbPassword.Text.Trim();
+		string passWord = tbPassWord.Text.Trim();
 		if (userName == "")
 		{
 			Response.Write("<script languge='javascript'>alert('请填写用户名！！！');</script>");
@@ -23,14 +23,20 @@ public partial class LoginPages_Login : System.Web.UI.Page
 		}
 		else if(userName!=""&&passWord!="") {
 			//SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["conStr"]);
-			SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString);
-			con.Open();
-			string sqlSelect = "select count(*) from tb_UserInfo where U_UserName = '" + userName + "' and U_PassWord='" + passWord + "'";
-			SqlCommand com = new SqlCommand(sqlSelect, con);
-			if (Convert.ToInt32(com.ExecuteScalar()) > 0)
+			//SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString);
+			//con.Open();
+			//string sqlSelect = "select count(*) from tb_UserInfo where U_UserName = '" + userName + "' and U_PassWord='" + passWord + "'";
+			//SqlCommand com = new SqlCommand(sqlSelect, con);
+			string sqlSelect = "select count(*) from tb_UserInfo where U_UserName=@username and U_PassWord=@password";
+			SqlParameter[] pms = new SqlParameter[] {
+				new SqlParameter("@username", userName),
+				new SqlParameter("@password", passWord)
+			};
+			int r = Convert.ToInt32(DBHelper.DBHelper.ExecuteScalar(sqlSelect, pms));
+			if (r > 0)
 			{
 				Session["UserName"] = tbUserName.Text.Trim();
-				Session.Timeout = 200;
+				Session.Timeout = 9000;
 				Response.Redirect("../Admin/Index.aspx");
 			}
 			else
@@ -43,6 +49,6 @@ public partial class LoginPages_Login : System.Web.UI.Page
 	protected void btnReset_Click(object sender, EventArgs e)
 	{
 		tbUserName.Text = "";
-		tbPassword.Text = "";
+		tbPassWord.Text = "";
 	}
 }

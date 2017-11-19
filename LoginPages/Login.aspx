@@ -4,194 +4,80 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
 	<title>用户登录</title>
-	<link rel="stylesheet" href="../Resources/LoginRe/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="../Resources/LoginRe/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="../Resources/LoginRe/css/demo.css" />
-	<style type="text/css">
-		.form-horizontal {
-			background: #fff;
-			padding-bottom: 40px;
-			border-radius: 15px;
-			text-align: center;
-		}
-
-			.form-horizontal .heading {
-				display: block;
-				font-size: 35px;
-				font-weight: 700;
-				padding: 35px 0;
-				border-bottom: 1px solid #f0f0f0;
-				margin-bottom: 30px;
-			}
-
-			.form-horizontal .form-group {
-				padding: 0 40px;
-				margin: 0 0 25px 0;
-				position: relative;
-			}
-
-			.form-horizontal .form-control {
-				background: #f0f0f0;
-				border: none;
-				border-radius: 20px;
-				box-shadow: none;
-				padding: 0 20px 0 45px;
-				height: 40px;
-				transition: all 0.3s ease 0s;
-			}
-
-				.form-horizontal .form-control:focus {
-					background: #e0e0e0;
-					box-shadow: none;
-					outline: 0 none;
-				}
-
-			.form-horizontal .form-group i {
-				position: absolute;
-				top: 12px;
-				left: 60px;
-				font-size: 17px;
-				color: #c8c8c8;
-				transition: all 0.5s ease 0s;
-			}
-
-			.form-horizontal .form-control:focus + i {
-				color: #00b4ef;
-			}
-
-			.form-horizontal .fa-question-circle {
-				display: inline-block;
-				position: absolute;
-				top: 12px;
-				right: 60px;
-				font-size: 20px;
-				color: #808080;
-				transition: all 0.5s ease 0s;
-			}
-
-				.form-horizontal .fa-question-circle:hover {
-					color: #000;
-				}
-
-			.form-horizontal .main-checkbox {
-				float: left;
-				width: 20px;
-				height: 20px;
-				background: #11a3fc;
-				border-radius: 50%;
-				position: relative;
-				margin: 5px 0 0 5px;
-				border: 1px solid #11a3fc;
-			}
-
-				.form-horizontal .main-checkbox label {
-					width: 20px;
-					height: 20px;
-					position: absolute;
-					top: 0;
-					left: 0;
-					cursor: pointer;
-				}
-
-					.form-horizontal .main-checkbox label:after {
-						content: "";
-						width: 10px;
-						height: 5px;
-						position: absolute;
-						top: 5px;
-						left: 4px;
-						border: 3px solid #fff;
-						border-top: none;
-						border-right: none;
-						background: transparent;
-						opacity: 0;
-						-webkit-transform: rotate(-45deg);
-						transform: rotate(-45deg);
-					}
-
-				.form-horizontal .main-checkbox input[type=checkbox] {
-					visibility: hidden;
-				}
-
-					.form-horizontal .main-checkbox input[type=checkbox]:checked + label:after {
-						opacity: 1;
-					}
-
-			.form-horizontal .text {
-				float: left;
-				margin-left: 7px;
-				line-height: 20px;
-				padding-top: 5px;
-				text-transform: capitalize;
-			}
-
-			.form-horizontal .btn {
-				float: right;
-				font-size: 14px;
-				color: #fff;
-				background: #00b4ef;
-				border-radius: 30px;
-				padding: 10px 25px;
-				border: none;
-				text-transform: capitalize;
-				transition: all 0.5s ease 0s;
-			}
-
-		@media only screen and (max-width: 479px) {
-			.form-horizontal .form-group {
-				padding: 0 25px;
-			}
-
-				.form-horizontal .form-group i {
-					left: 45px;
-				}
-
-			.form-horizontal .btn {
-				padding: 10px 20px;
-			}
-		}
-
-		.button{
-			border-radius:16px;
-		}
-	</style>
+	<script src="../Resources/Common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="../Resources/Common/layui/layui.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../Resources/Common/layui/css/layui.css" />
+	<link rel="stylesheet" href="../Resources/Common/layui/css/global.css" media="all" />
 </head>
-<body>
-	<div class="demo" style="padding: 20px 0; margin-top: 220px">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-offset-3 col-md-6">
-					<form id="form1" runat="server" class="form-horizontal">
-						<span class="heading" style="font-family:'Microsoft YaHei'; color:gray">用户登录</span>
-						<div class="form-group">
-							<asp:TextBox ID="tbUserName" Height="44" CssClass="form-control" runat="server" ></asp:TextBox>
-							<i class="fa fa-user">&nbsp;|</i>
-						</div>
-						<div class="form-group help">
-							<asp:TextBox ID="tbPassword" Height="44" CssClass="form-control" runat="server" TextMode="Password" ></asp:TextBox>
-							<i class="fa fa-lock">&nbsp;|</i>
-						</div>
-						<div class="form-group">
-							<table style="width: 100%; height: 88px; vertical-align:bottom">
-								<tr>
-									<td style="width: 50%" align="center">
-										<asp:Button ID="btnLogin" runat="server" Text="登&nbsp;&nbsp;&nbsp;&nbsp;录" Font-Bold="true" Font-Size="Large" Width="160px" Height="50px" CssClass="button" BackColor="dodgerblue" OnClick="btnLogin_Click" BorderStyle="None" />
-									</td>
-									<td style="width: 50%" align="center">
-										<asp:Button ID="btnReset" runat="server" Text="重&nbsp;&nbsp;&nbsp;&nbsp;置" Font-Bold="true" Font-Size="Large" Width="160px" Height="50px" CssClass="button" BackColor="dodgerblue" OnClick="btnReset_Click" BorderStyle="None" />
-									</td>
-								</tr>
-							</table>
-						</div>
+<body style="background-color:purple;">
+	<table align="center" style="margin-top: 240px">
+		<tr>
+			<td style="width: 25%"></td>
+			<td style="width: 50%">
+				<div class="site-title" align="center">
+					<table align="center" style="width:100%; margin-right:0px">
+							<tr>
+								<td style="width:10%"></td>
+								<td style="width:79%;">
+									<fieldset>
+										<legend>
+											<span style=" color:white; font-weight:400">用户登录</span>
+										</legend>
+									</fieldset>
+								</td>
+								<td style="width:38%"></td>
+							</tr>
+					</table>
+					
+				</div>
+				<div class="site-text site-block" style="margin-right:140px">
+					<form id="form1" runat="server" class="layui-form layui-form-pane">
+						<table align="center" style="width:100%; margin-right:0px;">
+							<tr>
+								<td style="width:16%"></td>
+								<td style="width:46%">
+									<div class="layui-form-item">
+										<label class="layui-form-label">用户名:</label>
+										<div class="layui-input-inline">
+											<asp:TextBox ID="tbUserName" runat="server" lay-verify="required" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+										<div class="layui-input-inline">
+											<asp:TextBox ID="tbPassWord" TextMode="Password" runat="server" lay-verify="required" placeholder="请输入密码" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+										</div>
+									</div>
+									<div >
+										<div align="center">
+											<asp:Button ID="btnLogin" runat="server" Text="登&nbsp;&nbsp;&nbsp;&nbsp;录" CssClass="layui-btn" OnClick="btnLogin_Click" />&nbsp;&nbsp;
+											<asp:Button ID="btnReset" runat="server" Text="重&nbsp;&nbsp;&nbsp;&nbsp;置" CssClass="layui-btn layui-btn-primary" OnClick="btnReset_Click" />
+										</div>
+									</div>
+								</td>
+								<td style="width:30%"></td>
+							</tr>
+						</table>
+
 					</form>
 				</div>
-			</div>
-		</div>
-	</div>
+			</td>
+			<td style="width: 25%"></td>
+		</tr>
+	</table>
+
+
+	<script>
+		layui.use('form', function () {
+			var form = layui.form;
+		});
+	</script>
 </body>
 </html>
