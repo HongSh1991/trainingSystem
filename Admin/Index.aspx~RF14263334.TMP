@@ -43,7 +43,7 @@
 </head>
 <body style="margin: auto">
 	<form id="form1" runat="server" class="layui-form layui-form-pane">
-		<div style="height:28%">
+		<div>
 			<uc1:Header ID="Header" runat="server" TagName="Header" TagPrefix="uc1" />
 		</div>
 		<div style="height: 16%; margin: auto;">
@@ -75,7 +75,7 @@
 			<div id="test1" class="site-text site-block" style="margin-top: 64px; margin-left: 120px;">
 				<label class="layui-form-label" style="text-align: right">机构名称:</label>
 				<div class="layui-input-inline">
-					<asp:TextBox ID="tbOrgContent" runat="server" required lay-verify="required" placeholder="请输入机构名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+					<asp:TextBox ID="tbOrgContent" runat="server" lay-verify="required" placeholder="请输入机构名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 				</div>
 				<div>
 					<table>
@@ -86,7 +86,7 @@
 				</div>
 				<div style="margin-right: 100px">
 					<div align="center">
-						<asp:Button ID="btnSaveOrg" runat="server" Text="保存机构名称" CssClass="layui-btn" lay-submit lay-filter="formDemo1" />&nbsp;&nbsp;
+						<asp:Button ID="btnSaveOrg" runat="server" Text="保存机构名称" CssClass="layui-btn" OnClick="btnSaveOrg_Click" />&nbsp;&nbsp;
 					<%--<asp:Button ID="btnDeleteOrg" runat="server" Text="删&nbsp;&nbsp;&nbsp;&nbsp;除" CssClass="layui-btn layui-btn-primary" OnClick="btnDeleteOrg_Click" />--%>
 					</div>
 				</div>
@@ -97,7 +97,7 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label" style="text-align: right">部门名称:</label>
 					<div class="layui-input-inline">
-						<asp:TextBox ID="tbAddDepartment" runat="server" required lay-verify="required" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+						<asp:TextBox ID="tbAddDepartment" runat="server" lay-verify="required" placeholder="请输入部门名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 					</div>
 				</div>
 				<div><table><tr><td style="height: 10px;"></td></tr></table></div>
@@ -122,7 +122,7 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label" style="text-align: right">岗位名称:</label>
 					<div class="layui-input-inline">
-						<asp:TextBox ID="tbAddJob" runat="server" required lay-verify="required" placeholder="请输入岗位名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+						<asp:TextBox ID="tbAddJob" runat="server" lay-verify="required" placeholder="请输入岗位名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 					</div>
 				</div>
 				<div><table><tr><td style="height: 10px;"></td></tr></table></div>
@@ -143,8 +143,8 @@
 			</div>
 
 			<!--新增人员-->
-			<div id="test4" class="site-text site-block" style="margin-top: 36px; margin-left: 80px;">
-				<table style="width:100%;height:100%;">
+			<div id="test4" class="site-text site-block" style="margin-top: 36px; margin-left: 120px;">
+				<table style="width:100%;height:100%">
 					<tr>
 						<td style="width:60%">
 							<div class="layui-form-item">
@@ -309,7 +309,7 @@
 							<div><table><tr><td style="height: 10px;"></td></tr></table></div>
 							<div class="layui-form-item">
 								<label class="layui-form-label" style="text-align: right">联系地址:</label>
-								<div class="layui-input-block" style="width: 69.6%">
+								<div class="layui-input-block" style="width: 73.6%">
 									<asp:TextBox ID="tbAddAdress" runat="server" required lay-verify="required" placeholder="请输入您的联系地址" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 								</div>
 							</div>
@@ -370,10 +370,10 @@
 
 		layui.use('form', function () {
 			var form = layui.form();
-
-			form.on('submit(formDemo1)', function (data) {
+			//form.render();
+			//监听提交
+			form.on('submit(formDemo)', function (data) {
 				layer.msg(JSON.stringify(data.field));
-				//console.log(data.form);
 				return false;
 			});
 		});
@@ -386,19 +386,6 @@
 				elem: '#tbAddDatetime' //指定元素
 			});
 		});
-
-		//layui.use('upload', function () {
-		//	var $ = layui.jquery
-		//	, upload = layui.upload;
-
-		//	upload.render({
-		//		elem: '#test5'
-		//		, url: '/api/upload/'
-		//		, done: function (res) {
-		//			console.log(res)
-		//		}
-		//	})
-		//});
 
 		function func1() {
 			layer.open({

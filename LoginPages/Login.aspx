@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="../Resources/Common/layui/css/layui.css" />
 	<link rel="stylesheet" href="../Resources/Common/layui/css/global.css" media="all" />
 </head>
-<body style="background-color:purple;">
+<body style="background-color:purple;"><!--#00CCFF-->
 	<table align="center" style="margin-top: 240px">
 		<tr>
 			<td style="width: 25%"></td>
@@ -35,7 +35,6 @@
 								<td style="width:38%"></td>
 							</tr>
 					</table>
-					
 				</div>
 				<div class="site-text site-block" style="margin-right:140px">
 					<form id="form1" runat="server" class="layui-form layui-form-pane">

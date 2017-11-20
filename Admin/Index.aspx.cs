@@ -24,13 +24,6 @@ public partial class Admin_Index : System.Web.UI.Page
 		}
 	}
 
-	protected void lbExit_Click(object sender, EventArgs e)
-	{
-		Session.Clear();
-		Session.Abandon();
-		this.Response.Redirect("../LoginPages/Login.aspx"); // 退出并跳转到登录页
-	}
-
 	protected void lbUserManager_Click(object sender, EventArgs e)
 	{
 		// 显示第一页
@@ -43,23 +36,27 @@ public partial class Admin_Index : System.Web.UI.Page
 		this.mvPages.ActiveViewIndex = 1;
 	}
 
-	protected void btnOrgContent_Click(object sender, EventArgs e)
+	//protected void btnSaveOrg_Click(object sender, EventArgs e) 
+	//{
+	//	string orgContent = tbOrgContent.Text.Trim();
+	//	string sqlInsertOrg = string.Format("insert into tb_OrgContent(O_OrgName)values(\"{0}\")", orgContent);
+
+	//	DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg);
+	//	Response.Redirect("../Admin/Index.aspx");
+	//}
+
+	protected void btnSaveDe_Click(object sender, EventArgs e)
 	{
 		
 	}
 
-	protected void btnUserInfo_Click(object sender, EventArgs e)
+	protected void btnSaveJob_Click(object sender, EventArgs e)
 	{
 		
 	}
 
-	protected void btnSave_Click(object sender, EventArgs e)
+	protected void btnSaveAdd_Click(object sender, EventArgs e)
 	{
-
-	}
-
-	protected void btnCancel_Click(object sender, EventArgs e)
-	{
-
+		
 	}
 }
