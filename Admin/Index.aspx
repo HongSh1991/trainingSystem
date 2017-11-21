@@ -22,22 +22,6 @@
 		.button1 {
 			cursor: pointer;
 		}
-
-		#test1 {
-			display: none;
-		}
-
-		#test2 {
-			display: none;
-		}
-
-		#test3 {
-			display: none;
-		}
-
-		#test4 {
-			display: none;
-		}
 	</style>
 
 </head>
@@ -72,7 +56,7 @@
 			</ul>
 
 			<!--新增机构目录-->
-			<div id="test1" class="site-text site-block" style="margin-top: 64px; margin-left: 120px;">
+			<div id="test1" class="site-text site-block" style="display:none; margin-top: 64px; margin-left: 120px;">
 				<label class="layui-form-label" style="text-align: right">机构名称:</label>
 				<div class="layui-input-inline">
 					<asp:TextBox ID="tbOrgContent" runat="server" required lay-verify="required" placeholder="请输入机构名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
@@ -86,14 +70,14 @@
 				</div>
 				<div style="margin-right: 100px">
 					<div align="center">
-						<asp:Button ID="btnSaveOrg" runat="server" Text="保存机构名称" CssClass="layui-btn" lay-submit lay-filter="formDemo1" />&nbsp;&nbsp;
+						<asp:Button ID="btnSaveOrg" runat="server" Text="保存机构名称" CssClass="layui-btn" OnClick="btnSaveOrg_Click" />&nbsp;&nbsp;
 					<%--<asp:Button ID="btnDeleteOrg" runat="server" Text="删&nbsp;&nbsp;&nbsp;&nbsp;除" CssClass="layui-btn layui-btn-primary" OnClick="btnDeleteOrg_Click" />--%>
 					</div>
 				</div>
 			</div>
 
 			<!--新增部门-->
-			<div id="test2" class="site-text site-block" style="margin-top: 42px; margin-left: 120px;">
+			<div id="test2" class="site-text site-block" style="display:none; margin-top: 42px; margin-left: 120px;">
 				<div class="layui-form-item">
 					<label class="layui-form-label" style="text-align: right">部门名称:</label>
 					<div class="layui-input-inline">
@@ -118,7 +102,7 @@
 			</div>
 
 			<!--新增岗位-->
-			<div id="test3" class="site-text site-block" style="margin-top: 42px; margin-left: 120px;">
+			<div id="test3" class="site-text site-block" style="display:none; margin-top: 42px; margin-left: 120px;">
 				<div class="layui-form-item">
 					<label class="layui-form-label" style="text-align: right">岗位名称:</label>
 					<div class="layui-input-inline">
@@ -143,7 +127,7 @@
 			</div>
 
 			<!--新增人员-->
-			<div id="test4" class="site-text site-block" style="margin-top: 36px; margin-left: 80px;">
+			<div id="test4" class="site-text site-block" style="display:none; margin-top: 36px; margin-left: 80px;">
 				<table style="width:100%;height:100%;">
 					<tr>
 						<td style="width:60%">
@@ -370,12 +354,6 @@
 
 		layui.use('form', function () {
 			var form = layui.form();
-
-			form.on('submit(formDemo1)', function (data) {
-				layer.msg(JSON.stringify(data.field));
-				//console.log(data.form);
-				return false;
-			});
 		});
 
 		layui.use('laydate', function () {
@@ -401,6 +379,7 @@
 		//});
 
 		function func1() {
+			//document.getElementById("test1").style.display = "block";
 			layer.open({
 				type: 1 //Page层类型
 				, area: ['500px', '300px']

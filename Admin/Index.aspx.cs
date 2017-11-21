@@ -36,14 +36,18 @@ public partial class Admin_Index : System.Web.UI.Page
 		this.mvPages.ActiveViewIndex = 1;
 	}
 
-	//protected void btnSaveOrg_Click(object sender, EventArgs e) 
-	//{
-	//	string orgContent = tbOrgContent.Text.Trim();
-	//	string sqlInsertOrg = string.Format("insert into tb_OrgContent(O_OrgName)values(\"{0}\")", orgContent);
+	protected void btnSaveOrg_Click(object sender, EventArgs e)
+	{
+		//string orgContent = tbOrgContent.Text.Trim();
+		//string sqlInsertOrg = string.Format("insert into tb_OrgContent(O_OrgName)values(\"{0}\")", orgContent);
+		string sqlInsertOrg = "insert into tb_OrgContent(O_OrgName)values('@orgContent')";
+		SqlParameter[] pms = new SqlParameter[] {
+			new SqlParameter("@orgContent", tbOrgContent.Text.Trim())
+		};
 
-	//	DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg);
-	//	Response.Redirect("../Admin/Index.aspx");
-	//}
+		DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg, pms);
+		Response.Redirect("../Admin/Index.aspx");
+	}
 
 	protected void btnSaveDe_Click(object sender, EventArgs e)
 	{
