@@ -10,7 +10,7 @@
 	<title style="text-align: center">管理员，欢迎您！</title>
 	<script src="../../Resources/Admin/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 	<script src="../Resources/Common/js/jquery-1.12.3.min.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="../Resources/Common/layui/css/layui.css" />
+	<link rel="stylesheet" href="../layui/css/layui.css"/>
 
 	<style type="text/css">
 		.button {
@@ -26,39 +26,41 @@
 </head>
 <body style="margin: auto">
 	<form id="form1" runat="server" class="layui-form layui-form-pane">
-		<div style="height:28%">
+		<div style="height: 28%">
 			<uc1:Header ID="Header" runat="server" TagName="Header" TagPrefix="uc1" />
 		</div>
-		<div style="height: 16%; margin: auto;">
-			<ul class="layui-nav layui-bg-cyan" lay-filter="nav">
-				<li class="layui-nav-item">
-					<asp:Label ID="lbTips" runat="server" Font-Names="华文楷体" Font-Bold="true" ForeColor="white" Font-Size="1.6em"></asp:Label>
-				</li>
-				<li class="layui-nav-item">
-					<asp:LinkButton ID="lbUserManager" runat="server" OnClick="lbUserManager_Click">人员管理</asp:LinkButton>
-					<dl class="layui-nav-child">
-						<!-- 二级菜单 修改二级菜单至导航栏的距离只要修改 layui.css 文件中的layui-nav-child属性top为42px就好了-->
-						<dd><a href="#" onclick="func1()">新增机构</a></dd>
-						<dd><a href="#" onclick="func2()">新增部门</a></dd>
-						<dd><a href="#" onclick="func3()">新增岗位</a></dd>
-						<dd><a href="#" onclick="func4()">新增人员</a></dd>
-					</dl>
-				</li>
-				<li class="layui-nav-item">
-					<asp:LinkButton ID="lbCourseManager" runat="server" OnClick="lbCourseManager_Click">课程管理</asp:LinkButton>
-					<dl class="layui-nav-child">
-						<!-- 二级菜单 -->
-						<dd><a href="#">新增课程分类</a></dd>
-						<dd><a href="#">新增课程目录</a></dd>
-					</dl>
-				</li>
-			</ul>
+		<ul class="layui-nav layui-bg-cyan" lay-filter="nav">
+			<li class="layui-nav-item">
+				<asp:Label ID="lbTips" runat="server" Font-Names="华文楷体" Font-Bold="true" ForeColor="white" Font-Size="1.6em"></asp:Label>
+			</li>
+			<li class="layui-nav-item">
+				<asp:LinkButton ID="lbUserManager" runat="server" OnClick="lbUserManager_Click">人员管理</asp:LinkButton>
+				<dl class="layui-nav-child">
+					<!-- 二级菜单 修改二级菜单至导航栏的距离只要修改 layui.css 文件中的layui-nav-child属性top为42px就好了-->
+					<dd><a href="#" onclick="func1()">新增机构</a></dd>
+					<dd><a href="#" onclick="func2()">新增部门</a></dd>
+					<dd><a href="#" onclick="func3()">新增岗位</a></dd>
+					<dd><a href="#" onclick="func4()">新增人员</a></dd>
+				</dl>
+			</li>
+			<li class="layui-nav-item">
+				<asp:LinkButton ID="lbCourseManager" runat="server" OnClick="lbCourseManager_Click">课程管理</asp:LinkButton>
+				<dl class="layui-nav-child">
+					<!-- 二级菜单 -->
+					<dd><a href="#">新增课程分类</a></dd>
+					<dd><a href="#">新增课程目录</a></dd>
+				</dl>
+			</li>
+		</ul>
 
+		<div style="height: 16%; margin: auto;">
 			<!--新增机构目录-->
 			<div id="test1" class="site-text site-block" style="display:none; margin-top: 64px; margin-left: 120px;">
-				<label class="layui-form-label" style="text-align: right">机构名称:</label>
-				<div class="layui-input-inline">
-					<asp:TextBox ID="tbOrgContent" runat="server" required lay-verify="required" placeholder="请输入机构名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="text-align: right">机构名称:</label>
+					<div class="layui-input-inline">
+						<input type="text" name="OrgName" required lay-verify="required" placeholder="请输入机构名称" autocomplete="off" class="layui-input" />
+					</div>
 				</div>
 				<div>
 					<table>
@@ -67,10 +69,11 @@
 						</tr>
 					</table>
 				</div>
-				<div style="margin-right: 100px">
-					<div align="center">
-						<asp:Button ID="btnSaveOrg" runat="server" Text="保存机构名称" CssClass="layui-btn" OnClick="btnSaveOrg_Click" />&nbsp;&nbsp;
-					<%--<asp:Button ID="btnDeleteOrg" runat="server" Text="删&nbsp;&nbsp;&nbsp;&nbsp;除" CssClass="layui-btn layui-btn-primary" OnClick="btnDeleteOrg_Click" />--%>
+				<div class="layui-form-item">
+					<div style="margin-right: 100px">
+						<div align="center">
+							<button class="layui-btn" lay-submit lay-filter="formDemo">保存机构名称</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -341,36 +344,24 @@
 		</div>
 	</form>
 
-	<script src="../Resources/Common/layui/layui.js" type="text/javascript"></script>
-	<script src="../Resources/Common/layui/lay/modules/layer.js" type="text/javascript"></script>
-	<script src="../Resources/Common/layui/lay/modules/form.js" type="text/javascript"></script>
-	<script src="../Resources/Common/layui/lay/modules/element.js" type="text/javascript"></script>
-	<script src="../Resources/Common/layui/lay/modules/laydate.js" type="text/javascript"></script>
+	<script src="../layui/layui.js"></script>
 	<script>
-		//注意：导航 依赖 element 模块，否则无法进行功能性操作
 		layui.use(['layer', 'form', 'element', 'laydate'], function () {
-			var layer = layui.layer
-			, form = layui.form
-			, element = layui.element
-			, laydate = layui.laydate;
+			var layer = layui.layer,
+				form = layui.form,
+				element = layui.element,
+				laydate = layui.laydate;
 
 			laydate.render({
 				elem: '#tbAddDatetime'
 			});
+
+			//监听提交
+			form.on('submit(formDemo)', function (data) {
+				layer.msg(JSON.stringify(data.field));
+				return false;
+			});
 		});
-
-		//layui.use('upload', function () {
-		//	var $ = layui.jquery
-		//	, upload = layui.upload;
-
-		//	upload.render({
-		//		elem: '#test5'
-		//		, url: '/api/upload/'
-		//		, done: function (res) {
-		//			console.log(res)
-		//		}
-		//	})
-		//});
 
 		// 新增机构目录
 		function func1() {
@@ -380,8 +371,7 @@
 				, title: '新增机构'
 				, shade: 0.6 //遮罩透明度
 				, maxmin: true //允许全屏最小化
-				//, content: $('#test1')
-				, content: 'http://fly.layui.com/'
+				, content: $('#test1')
 			});
 		}
 
