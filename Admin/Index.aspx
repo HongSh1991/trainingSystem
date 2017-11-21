@@ -10,7 +10,6 @@
 	<title style="text-align: center">管理员，欢迎您！</title>
 	<script src="../../Resources/Admin/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 	<script src="../Resources/Common/js/jquery-1.12.3.min.js" type="text/javascript"></script>
-	<script src="../Resources/Common/layui/layui.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="../Resources/Common/layui/css/layui.css" />
 
 	<style type="text/css">
@@ -342,26 +341,21 @@
 		</div>
 	</form>
 
+	<script src="../Resources/Common/layui/layui.js" type="text/javascript"></script>
+	<script src="../Resources/Common/layui/lay/modules/layer.js" type="text/javascript"></script>
+	<script src="../Resources/Common/layui/lay/modules/form.js" type="text/javascript"></script>
+	<script src="../Resources/Common/layui/lay/modules/element.js" type="text/javascript"></script>
+	<script src="../Resources/Common/layui/lay/modules/laydate.js" type="text/javascript"></script>
 	<script>
 		//注意：导航 依赖 element 模块，否则无法进行功能性操作
-		layui.use('element', function () {
-			var element = layui.element;
-		});
+		layui.use(['layer', 'form', 'element', 'laydate'], function () {
+			var layer = layui.layer
+			, form = layui.form
+			, element = layui.element
+			, laydate = layui.laydate;
 
-		layui.use('layer', function () {
-			var layer = layui.layer;
-		});
-
-		layui.use('form', function () {
-			var form = layui.form();
-		});
-
-		layui.use('laydate', function () {
-			var laydate = layui.laydate;
-
-			//执行一个laydate实例
 			laydate.render({
-				elem: '#tbAddDatetime' //指定元素
+				elem: '#tbAddDatetime'
 			});
 		});
 
@@ -378,15 +372,16 @@
 		//	})
 		//});
 
+		// 新增机构目录
 		function func1() {
-			//document.getElementById("test1").style.display = "block";
 			layer.open({
 				type: 1 //Page层类型
 				, area: ['500px', '300px']
 				, title: '新增机构'
 				, shade: 0.6 //遮罩透明度
 				, maxmin: true //允许全屏最小化
-				, content: $('#test1')
+				//, content: $('#test1')
+				, content: 'http://fly.layui.com/'
 			});
 		}
 
