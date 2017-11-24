@@ -13,8 +13,8 @@
 	<title>用户登录</title>
 	<script src="../Resources/Common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="../Resources/Common/layui/layui.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="../Resources/Common/layui/css/layui.css" />
-	<link rel="stylesheet" href="../Resources/Common/layui/css/global.css" media="all" />
+	<link rel="stylesheet" href="../layui/css/layui.css"/>
+	<link rel="stylesheet" href="../layui/css/global.css" media="all" />
 </head>
 <body style="background-color:purple;"><!--#00CCFF-->
 	<table align="center" style="margin-top: 240px">
